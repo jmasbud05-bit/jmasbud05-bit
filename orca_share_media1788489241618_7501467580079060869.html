@@ -1,0 +1,1917 @@
+DOCTYPE html> 
+
+<html lang="en"> 
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Our TLE Coding Portfolio</title> 
+
+ 
+
+    <style> 
+
+        * { 
+
+            box-sizing: border-box; 
+
+            margin: 0; 
+
+            padding: 0; 
+
+        } 
+
+ 
+
+        body { 
+
+            font-family: Arial, sans-serif; 
+
+            background: #dff3ff; 
+
+            color: #333; 
+
+        } 
+
+ 
+
+        header { 
+
+            background: #ffb6c1; 
+
+            color: white; 
+
+            text-align: center; 
+
+            padding: 35px 20px; 
+
+        } 
+
+ 
+
+        header h1 { 
+
+            font-size: 35px; 
+
+        } 
+
+ 
+
+        nav { 
+
+            background: white; 
+
+            text-align: center; 
+
+            padding: 15px; 
+
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+
+        } 
+
+ 
+
+        nav a { 
+
+            text-decoration: none; 
+
+            color: #e75480; 
+
+            font-weight: bold; 
+
+            margin: 0 15px; 
+
+        } 
+
+ 
+
+        .welcome { 
+
+            text-align: center; 
+
+            padding: 45px 20px 25px; 
+
+        } 
+
+ 
+
+        .welcome h2 { 
+
+            color: #e75480; 
+
+            font-size: 28px; 
+
+        } 
+
+ 
+
+        .activities { 
+
+            max-width: 1000px; 
+
+            margin: 20px auto 50px; 
+
+            padding: 20px; 
+
+        } 
+
+ 
+
+        .activities > h2 { 
+
+            text-align: center; 
+
+            color: #e75480; 
+
+            margin-bottom: 25px; 
+
+        } 
+
+ 
+
+        .cards { 
+
+            display: grid; 
+
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+
+            gap: 20px; 
+
+        } 
+
+ 
+
+        .card { 
+
+            background: white; 
+
+            padding: 25px; 
+
+            border-radius: 15px; 
+
+            text-align: center; 
+
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12); 
+
+        } 
+
+ 
+
+        .card h3 { 
+
+            color: #e75480; 
+
+            margin-bottom: 12px; 
+
+        } 
+
+ 
+
+        .card p { 
+
+            font-size: 14px; 
+
+            line-height: 1.5; 
+
+            margin-bottom: 18px; 
+
+        } 
+
+ 
+
+        .button { 
+
+            display: inline-block; 
+
+            background: #ff8fab; 
+
+            color: white; 
+
+            padding: 10px 18px; 
+
+            border-radius: 20px; 
+
+            text-decoration: none; 
+
+            font-weight: bold; 
+
+            border: none; 
+
+            cursor: pointer; 
+
+        } 
+
+ 
+
+        .button:hover { 
+
+            background: #e75480; 
+
+        } 
+
+ 
+
+        .activity-page { 
+
+            display: none; 
+
+            max-width: 1100px; 
+
+            margin: 30px auto; 
+
+            padding: 30px; 
+
+            background: white; 
+
+            border-radius: 15px; 
+
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12); 
+
+        } 
+
+ 
+
+        .activity-page:target { 
+
+            display: block; 
+
+        } 
+
+ 
+
+        body:has(.activity-page:target) #mainPage { 
+
+            display: none; 
+
+        } 
+
+ 
+
+        .activity-page h1 { 
+
+            text-align: center; 
+
+            margin-bottom: 25px; 
+
+        } 
+
+ 
+
+        .activity-page h2 { 
+
+            margin-top: 20px; 
+
+            margin-bottom: 10px; 
+
+        } 
+
+ 
+
+        .activity-page h3 { 
+
+            margin-top: 10px; 
+
+            margin-bottom: 8px; 
+
+        } 
+
+ 
+
+        .activity-page li { 
+
+            margin: 6px 0; 
+
+        } 
+
+ 
+
+        .activity-page table { 
+
+            width: 100%; 
+
+            border-collapse: collapse; 
+
+            margin-top: 20px; 
+
+        } 
+
+ 
+
+        .activity-page th, 
+
+        .activity-page td { 
+
+            border: 2px solid black; 
+
+            padding: 15px; 
+
+        } 
+
+ 
+
+        .activity-page th { 
+
+            background: yellow; 
+
+            text-align: center; 
+
+        } 
+
+ 
+
+        .back { 
+
+            margin-top: 30px; 
+
+        } 
+
+ 
+
+        #listPage { 
+
+            background: purple; 
+
+            color: white; 
+
+        } 
+
+ 
+
+        .form-box { 
+
+            background: white; 
+
+            color: black; 
+
+            padding: 20px; 
+
+            margin-top: 20px; 
+
+        } 
+
+ 
+
+        .form-box h1 { 
+
+            color: black; 
+
+        } 
+
+ 
+
+        .form-box input, 
+
+        .form-box textarea, 
+
+        .form-box select { 
+
+            margin: 5px; 
+
+        } 
+
+ 
+
+        .form-content { 
+
+            background: white; 
+
+            color: black; 
+
+            padding: 20px; 
+
+            margin-top: 20px; 
+
+        } 
+
+ 
+
+        .form-content h2, 
+
+        .form-content h3, 
+
+        .form-content h4 { 
+
+            color: black; 
+
+            margin-top: 15px; 
+
+        } 
+
+ 
+
+        .changing-background { 
+
+            height: 400px; 
+
+            display: flex; 
+
+            justify-content: center; 
+
+            align-items: center; 
+
+            text-align: center; 
+
+            animation: colorChange 5s infinite alternate; 
+
+        } 
+
+ 
+
+        .changing-background h1 { 
+
+            color: white; 
+
+        } 
+
+ 
+
+        @keyframes colorChange { 
+
+            0% { 
+
+                background: #ff5733; 
+
+            } 
+
+ 
+
+            25% { 
+
+                background-color: #33ff57; 
+
+            } 
+
+ 
+
+            50% { 
+
+                background-color: #3357ff; 
+
+            } 
+
+ 
+
+            75% { 
+
+                background-color: #ff33a1; 
+
+            } 
+
+ 
+
+            100% { 
+
+                background-color: #ff5733; 
+
+            } 
+
+        } 
+
+ 
+
+        footer { 
+
+            background: #ffb6c1; 
+
+            color: white; 
+
+            text-align: center; 
+
+            padding: 25px; 
+
+        } 
+
+    </style> 
+
+</head> 
+
+ 
+
+<body> 
+
+ 
+
+<div id="mainPage"> 
+
+ 
+
+    <header> 
+
+        <h1>OUR CODING PAGE</h1> 
+
+    </header> 
+
+ 
+
+    <nav> 
+
+        <a href="#home">Lariosa</a> 
+
+        <a href="#about">Pamor</a> 
+
+        <a href="#activities">Bringas</a> 
+
+    </nav> 
+
+ 
+
+    <section class="welcome" id="home"> 
+
+        <h2>THIS IS OUR CODING</h2> 
+
+    </section> 
+
+ 
+
+    <section class="welcome" id="about"> 
+
+    </section> 
+
+ 
+
+    <section class="activities" id="activities"> 
+
+ 
+
+        <h2>💻 Our HTML Activities</h2> 
+
+ 
+
+        <div class="cards"> 
+
+ 
+
+            <div class="card"> 
+
+                <h3>📑 HTML Headings</h3> 
+
+                <p> 
+
+                    Learn about HTML headings and how they are used 
+
+                    to organize content. 
+
+                </p> 
+
+                <a href="#headingPage" class="button"> 
+
+                    View Activity 
+
+                </a> 
+
+            </div> 
+
+ 
+
+            <div class="card"> 
+
+                <h3>🎨 Auto Changing Background Color</h3> 
+
+                <p> 
+
+                    Learn how CSS animation can automatically change 
+
+                    the background color. 
+
+                </p> 
+
+                <a href="#backgroundPage" class="button"> 
+
+                    View Activity 
+
+                </a> 
+
+            </div> 
+
+ 
+
+            <div class="card"> 
+
+                <h3>📝 HTML Lists</h3> 
+
+                <p> 
+
+                    Learn about the three types of HTML lists: 
+
+                    unordered, ordered, and description lists. 
+
+                </p> 
+
+                <a href="#listPage" class="button"> 
+
+                    View Activity 
+
+                </a> 
+
+            </div> 
+
+ 
+
+            <div class="card"> 
+
+                <h3>📊 HTML Table</h3> 
+
+                <p> 
+
+                    Learn how HTML tables organize information 
+
+                    using rows, columns, headers, and data. 
+
+                </p> 
+
+                <a href="#tablePage" class="button"> 
+
+                    View Activity 
+
+                </a> 
+
+            </div> 
+
+ 
+
+            <div class="card"> 
+
+                <h3>📋 HTML Form</h3> 
+
+                <p> 
+
+                    A student registration form using different 
+
+                    HTML form elements and inputs. 
+
+                </p> 
+
+                <a href="#formPage" class="button"> 
+
+                    View Activity 
+
+                </a> 
+
+            </div> 
+
+ 
+
+        </div> 
+
+    </section> 
+
+ 
+
+    <footer> 
+
+        <p>IX - S. KUDARAT</p> 
+
+    </footer> 
+
+ 
+
+</div> 
+
+ 
+
+ 
+
+<!-- HTML HEADINGS --> 
+
+ 
+
+<div id="headingPage" class="activity-page"> 
+
+ 
+
+    <h1>HTML HEADINGS</h1> 
+
+ 
+
+    <h1><font color="red">First Heading</font></h1> 
+
+ 
+
+    <h2><font color="blue">My Second Heading</font></h2> 
+
+ 
+
+    <h3><font color="green">My Third Heading </font></h3> 
+
+ 
+
+    <h4><font color="purple">My Fourth Heading </font></h4> 
+
+ 
+
+    <h5><font color="orange">My Fifth Heading</font></h5> 
+
+ 
+
+    <h6><font color="brown">My Sixth Heading</font></h6> 
+
+ 
+
+    <p> 
+
+        <br>My First Paragraph.</br> 
+
+        <b> HTML stands for Hyper Text Markup Language</b> 
+
+        <u>HTML is the standard markup language for creating Web pages</u> 
+
+        <i> HTML describes the structure of a Web page </i> 
+
+    </p> 
+
+ 
+
+    <a href="https://www.reallygreatsite.com"> 
+
+        Visit Really Great Site 
+
+    </a> 
+
+ 
+
+    <br><br> 
+
+ 
+
+    <a href="#home" class="button back"> 
+
+        ← Back to Our Home 
+
+    </a> 
+
+ 
+
+</div> 
+
+ 
+
+ 
+
+<!-- AUTO CHANGING BACKGROUND COLOR --> 
+
+ 
+
+<div id="backgroundPage" class="activity-page"> 
+
+ 
+
+    <h1>MY AUTO CHANGING BACKGROUND COLOR</h1> 
+
+ 
+
+    <div class="changing-background"> 
+
+ 
+
+        <h1> 
+
+            <font color="white"> 
+
+                My Auto Changing Background Color 
+
+            </font> 
+
+        </h1> 
+
+ 
+
+    </div> 
+
+ 
+
+    <a href="#home" class="button back"> 
+
+        ← Back to Our Home 
+
+    </a> 
+
+ 
+
+</div> 
+
+ 
+
+ 
+
+<!-- HTML LISTS --> 
+
+ 
+
+<div id="listPage" class="activity-page"> 
+
+ 
+
+    <h1>OUR THREE TYPES OF HTML LIST</h1> 
+
+ 
+
+    <h2>1. UNORDERED LIST (ul)</h2> 
+
+ 
+
+    <h3> 
+
+        Used when the chronological sequence of items does not matter. 
+
+        Items are marked with BULLET POINTS by default. 
+
+    </h3> 
+
+ 
+
+    <h3>Parent container uses the (ul) tag.</h3> 
+
+ 
+
+    <h3> 
+
+        Each individual item uses the list item or (li) tag. 
+
+    </h3> 
+
+ 
+
+    <h3> 
+
+        Bullet styles can be changed with CSS list-style-type 
+
+        (ex. square or circle). 
+
+    </h3> 
+
+ 
+
+    <h3>Example: Groceries</h3> 
+
+ 
+
+    <ul> 
+
+        <li>Milk</li> 
+
+        <li>Egg</li> 
+
+        <li>Bread</li> 
+
+        <li>Sugar</li> 
+
+ 
+
+        <li> 
+
+            Coffee supplies 
+
+ 
+
+            <ul> 
+
+                <li>Coffee beans</li> 
+
+                <li>Creamer</li> 
+
+                <li>Sugar</li> 
+
+            </ul> 
+
+        </li> 
+
+    </ul> 
+
+ 
+
+    <h2>2. ORDERED LIST (ol)</h2> 
+
+ 
+
+    <h3> 
+
+        Ordered lists are used when the sequence of the items is 
+
+        important. Items are marked with NUMBERS by default. 
+
+    </h3> 
+
+ 
+
+    <h3>Parent container uses the (ol) tag.</h3> 
+
+ 
+
+    <h3>Each individual item uses the (li) tag.</h3> 
+
+ 
+
+    <h3> 
+
+        Customize markers using the type attribute. 
+
+        (ex. type="A" for letters, type="I" for Roman numerals). 
+
+    </h3> 
+
+ 
+
+    <h3>Reverse numbering order using the reversed attribute.</h3> 
+
+ 
+
+    <h3>Change the start value using the start attribute.</h3> 
+
+ 
+
+    <h3>Example: Morning Routine</h3> 
+
+ 
+
+    <ol> 
+
+        <li>Prayer</li> 
+
+        <li>Exercise</li> 
+
+        <li>Walking/running</li> 
+
+        <li>Eat breakfast</li> 
+
+        <li>Bath</li> 
+
+        <li>Work</li> 
+
+    </ol> 
+
+ 
+
+    <h2>3. DESCRIPTION LIST (dl)</h2> 
+
+ 
+
+    <h3> 
+
+        Used for key-value, glossaries, or terms and definitions. 
+
+        They do not use standard bullet points or sequential numbers. 
+
+    </h3> 
+
+ 
+
+    <h3>Parent container uses the (dl) tag.</h3> 
+
+ 
+
+    <h3>The term is wrapped in a (dt) tag.</h3> 
+
+ 
+
+    <h3>The explanation is wrapped in a (dd) tag.</h3> 
+
+ 
+
+    <dl> 
+
+ 
+
+        <dt><b>PRAYER</b></dt> 
+
+        <dd> 
+
+            A solemn request for help or expression of thanks 
+
+            addressed to God or an object of worship. 
+
+        </dd> 
+
+ 
+
+        <dt><b>EXERCISE</b></dt> 
+
+        <dd> 
+
+            Activity requiring physical effort, carried out to 
+
+            sustain or improve health and fitness. 
+
+        </dd> 
+
+ 
+
+        <dt><b>WALKING</b></dt> 
+
+        <dd> 
+
+            Move at a regular pace by lifting and setting down 
+
+            each other foot in turn. 
+
+        </dd> 
+
+ 
+
+        <dt><b>BREAKFAST</b></dt> 
+
+        <dd> 
+
+            A meal eaten in the morning, the first of the day. 
+
+        </dd> 
+
+ 
+
+        <dt><b>BATH</b></dt> 
+
+        <dd> 
+
+            An act or process of immersing and washing one's body 
+
+            in a large container of water. 
+
+        </dd> 
+
+ 
+
+        <dt><b>WORK</b></dt> 
+
+        <dd> 
+
+            A purposeful mental or physical effort directed 
+
+            toward achieving a result. 
+
+        </dd> 
+
+ 
+
+    </dl> 
+
+ 
+
+    <h2 style="text-align:center;"> 
+
+        COMPARISON OF OUR THREE HTML LISTS 
+
+    </h2> 
+
+ 
+
+    <table> 
+
+ 
+
+        <tr> 
+
+            <th>HTML TYPE</th> 
+
+            <th>HTML TAGS</th> 
+
+            <th>DEFAULT MARKER</th> 
+
+            <th>BEST USE CASE</th> 
+
+        </tr> 
+
+ 
+
+        <tr align="center"> 
+
+            <td>1. UNORDERED LIST (ul)</td> 
+
+            <td>(ul), (li)</td> 
+
+            <td>Bullets</td> 
+
+            <td>Shopping list, navigation menus</td> 
+
+        </tr> 
+
+ 
+
+        <tr align="center"> 
+
+            <td>2. ORDERED LIST (ol)</td> 
+
+            <td>(ol), (li)</td> 
+
+            <td>Numbers</td> 
+
+            <td>Instructions, recipe steps, rankings</td> 
+
+        </tr> 
+
+ 
+
+        <tr align="center"> 
+
+            <td>3. DESCRIPTION LIST (dl)</td> 
+
+            <td>(dl), (dt), (dd)</td> 
+
+            <td>Indented block</td> 
+
+            <td>Glossaries, FAQ pages, dictionary</td> 
+
+        </tr> 
+
+ 
+
+    </table> 
+
+ 
+
+    <a href="#home" class="button back"> 
+
+        ← Back to Our Home 
+
+    </a> 
+
+ 
+
+</div> 
+
+ 
+
+ 
+
+<!-- HTML TABLE --> 
+
+ 
+
+<div id="tablePage" class="activity-page"> 
+
+ 
+
+    <h1>OUR HYPERTEXT MARKUP LANGUAGE (HTML) TABLE</h1> 
+
+ 
+
+    <h2> 
+
+        An HTML TABLE is created using the (table) tag, which 
+
+        arranges structured data into rows and columns. 
+
+    </h2> 
+
+ 
+
+    <h3>CORE HTML TABLE TAGS:</h3> 
+
+ 
+
+    <ol> 
+
+ 
+
+        <li>table: Enclose the entire table data structure.</li> 
+
+ 
+
+        <li>tr: Defines a single horizontal TABLE ROW.</li> 
+
+ 
+
+        <li>th: Sets a TABLE HEADER cell.</li> 
+
+ 
+
+        <li>td: Specifies a standard TABLE DATA cell.</li> 
+
+ 
+
+    </ol> 
+
+ 
+
+    <h3>SEMANTIC STRUCTURAL ELEMENTS</h3> 
+
+ 
+
+    <h4> 
+
+        For larger or complex datasets, use semantic tags to 
+
+        group our structural sections: 
+
+    </h4> 
+
+ 
+
+    <ol> 
+
+ 
+
+        <li> 
+
+            caption: Places a descriptive title directly above the table. 
+
+        </li> 
+
+ 
+
+        <li> 
+
+            thead: Wraps the master header rows of our dataset. 
+
+        </li> 
+
+ 
+
+        <li> 
+
+            tbody: Groups the primary body content containing data rows. 
+
+        </li> 
+
+ 
+
+        <li> 
+
+            tfoot: Encloses summary or total rows at the bottom. 
+
+        </li> 
+
+ 
+
+    </ol> 
+
+ 
+
+    <h3>SPANNING LAYOUT ATTRIBUTES</h3> 
+
+ 
+
+    <ol> 
+
+ 
+
+        <li> 
+
+            colspan: Stretches a data cell horizontally across 
+
+            multiple columns. 
+
+        </li> 
+
+ 
+
+        <li> 
+
+            rowspan: Extends a single cell vertically down across 
+
+            multiple rows. 
+
+        </li> 
+
+ 
+
+    </ol> 
+
+ 
+
+    <table> 
+
+ 
+
+        <tr> 
+
+            <th>HEALTH RISKS OF WORKING AT THE COMPUTER</th> 
+
+            <th>ERGONOMIC TIPS FOR COMPUTER USERS</th> 
+
+            <th>SIGNS OF POOR ERGONOMICS</th> 
+
+        </tr> 
+
+ 
+
+        <tr align="center"> 
+
+            <td>Musculoskeletal Problems</td> 
+
+            <td>Proper Sitting Posture</td> 
+
+            <td>Back Pain</td> 
+
+        </tr> 
+
+ 
+
+        <tr align="center"> 
+
+            <td>Repetitive Strain Injury (RSI)</td> 
+
+            <td>Correct Monitor Placement</td> 
+
+            <td>Neck Stiffness</td> 
+
+        </tr> 
+
+ 
+
+        <tr align="center"> 
+
+            <td>Computer Vision Syndrome (CVS)</td> 
+
+            <td>Proper Keyboard &amp; Mouse Position</td> 
+
+            <td>Eye Discomfort</td> 
+
+        </tr> 
+
+ 
+
+        <tr align="center"> 
+
+            <td>Mental Fatigue and Stress</td> 
+
+            <td>Stretching Exercises</td> 
+
+            <td>Wrist Pain</td> 
+
+        </tr> 
+
+ 
+
+        <tr align="center"> 
+
+            <td>Sedentary Lifestyle Risks</td> 
+
+            <td>Taking Breaks</td> 
+
+            <td>Headaches</td> 
+
+        </tr> 
+
+ 
+
+        <tr align="center"> 
+
+            <td>Long Term Health Risks</td> 
+
+            <td>Healthy Computer Habits</td> 
+
+            <td>Fatigue</td> 
+
+        </tr> 
+
+ 
+
+    </table> 
+
+ 
+
+    <a href="#home" class="button back"> 
+
+        ← Back to Our Home 
+
+    </a> 
+
+ 
+
+</div> 
+
+ 
+
+<!-- HTML FORM --> 
+
+ 
+
+<div id="formPage" class="activity-page"> 
+
+ 
+
+    <div style="background-color:green; padding:20px;"> 
+
+ 
+
+        <br> 
+
+        <br> 
+
+ 
+
+        <form> 
+
+ 
+
+            <table align="center" width="700" cellpadding="10"> 
+
+ 
+
+                <tr> 
+
+                    <td colspan="2" align="center"> 
+
+                        <h1>UBNHS STUDENT REGISTRATION FORM</h1> 
+
+                    </td> 
+
+                </tr> 
+
+ 
+
+            </table> 
+
+ 
+
+            Student Name: 
+
+            <input type="text" name="fname"> 
+
+ 
+
+            <br></br> 
+
+ 
+
+            L.R.N: 
+
+            <input type="text" name="LRN"> 
+
+ 
+
+            <br><br> 
+
+ 
+
+            Father's Name: 
+
+            <input type="text" name="ffname"> 
+
+ 
+
+            <br><br> 
+
+ 
+
+            Mother's Name: 
+
+            <input type="text" name="mname"> 
+
+ 
+
+            <br><br> 
+
+ 
+
+            Phone Number: 
+
+            <input type="text" name="phone"> 
+
+ 
+
+            <br><br> 
+
+ 
+
+            Gmail Address: 
+
+            <input type="email" 
+
+                   name="email" 
+
+                   placeholder="sample@example.com"> 
+
+ 
+
+            <br><br> 
+
+ 
+
+            Gender: 
+
+            <input type="radio" name="rad1">Male 
+
+            <input type="radio" name="rad2">Female 
+
+ 
+
+            <br><br> 
+
+ 
+
+            Date of Birth: 
+
+            <input type="date" name="dob"> 
+
+ 
+
+            <br><br> 
+
+ 
+
+            <table align="center" width="700" cellpadding="10"> 
+
+ 
+
+                <tr> 
+
+                    <td>Address:</td> 
+
+                    <td> 
+
+                        <textarea cols="48" rows="3"></textarea> 
+
+                    </td> 
+
+                </tr> 
+
+ 
+
+                <tr> 
+
+                    <td>Grade Level:</td> 
+
+                    <td> 
+
+                        <input type="checkbox">Grade 7 
+
+                        <input type="checkbox">Grade 8 
+
+                        <input type="checkbox">Grade 9 
+
+                        <input type="checkbox">Grade 10 
+
+                        <input type="checkbox">Grade 11 
+
+                        <input type="checkbox">Grade 12 
+
+                    </td> 
+
+                </tr> 
+
+ 
+
+                <tr> 
+
+                    <td>Section:</td> 
+
+                    <td> 
+
+                        <select> 
+
+                            <option>-------Select Option--------</option> 
+
+                            <option>M.PONCE</option> 
+
+                            <option>ABAD SANTOS</option> 
+
+                            <option>KUDARAT</option> 
+
+                            <option>LUNA</option> 
+
+                            <option>BURGOS</option> 
+
+                            <option>ZAMORA</option> 
+
+                            <option>J.P.RIZAL</option> 
+
+                        </select> 
+
+                    </td> 
+
+                </tr> 
+
+ 
+
+                <tr> 
+
+                    <td>Student Photo:</td> 
+
+                    <td> 
+
+                        <input type="file"> 
+
+                    </td> 
+
+                </tr> 
+
+ 
+
+            </table> 
+
+ 
+
+            <br><br><br><br> 
+
+ 
+
+            <table align="center" width="700" cellpadding="10"> 
+
+ 
+
+                <tr> 
+
+                    <td colspan="4" align="center"> 
+
+                        <input type="submit" value="Register"> 
+
+                    </td> 
+
+                </tr> 
+
+ 
+
+            </table> 
+
+ 
+
+        </form> 
+
+ 
+
+    </div> 
+
+ 
+
+ 
+
+    <div class="form-content"> 
+
+ 
+
+        <h2 style="text-align:center;"> 
+
+            HYPERTEXT MARKUP LANGUAGE (HTML) FORM 
+
+        </h2> 
+
+ 
+
+        <h4> 
+
+            HTML FORMS are used to collect user inputs such as login credentials, 
+
+            search queries, or contact details and send them for processing. 
+
+            They are defined using the container (form) element, which holds 
+
+            various interactive controls like TEXT BOXES, RADIO BUTTONS, and 
+
+            SUBMIT BUTTONS. 
+
+        </h4> 
+
+ 
+
+        <br> 
+
+ 
+
+        <h4> 
+
+            Here is a standard semantic HTML form snippet: 
+
+        </h4> 
+
+ 
+
+        <img src="form-image.jpg"> 
+
+ 
+
+        <br> 
+
+ 
+
+        <h3>CORE FORM ATTRIBUTES:</h3> 
+
+ 
+
+        <ol> 
+
+ 
+
+            <li> 
+
+                ACTION: The URL endpoint where the form data will be processed 
+
+                upon submission. 
+
+            </li> 
+
+ 
+
+            <li> 
+
+                METHOD: The HTTP method used to send data. 
+
+            </li> 
+
+ 
+
+        </ol> 
+
+ 
+
+        <ul> 
+
+ 
+
+            <li> 
+
+                GET: Appends data to URL (visible, best for un-sensitive 
+
+                search features). 
+
+            </li> 
+
+ 
+
+            <li> 
+
+                POST: Sends data in the request body (hidden, best for 
+
+                sensitive login credentials). 
+
+            </li> 
+
+ 
+
+        </ul> 
+
+ 
+
+        <ol> 
+
+ 
+
+            <li> 
+
+                NAME: The key identifier assigned to each input. 
+
+                The server reads form data in name=value pairs. 
+
+            </li> 
+
+ 
+
+        </ol> 
+
+ 
+
+ 
+
+        <h3>COMMON FORM ELEMENTS</h3> 
+
+ 
+
+        <ol> 
+
+ 
+
+            <li> 
+
+                LABEL: Provides text context for form inputs. 
+
+                Its <b>for</b> attribute must match the input's 
+
+                <b>id</b> to ensure web accessibility. 
+
+            </li> 
+
+ 
+
+            <li> 
+
+                INPUT: The primary self-closing entry element. 
+
+                Its rendering changes drastically depending on the 
+
+                <b>type</b> attribute: 
+
+ 
+
+                <ul> 
+
+ 
+
+                    <li> 
+
+                        type="text": Standard text box. 
+
+                    </li> 
+
+ 
+
+                    <li> 
+
+                        type="password": Obscures typed characters. 
+
+                    </li> 
+
+ 
+
+                    <li> 
+
+                        type="radio": Selects one option from a grouped set. 
+
+                    </li> 
+
+ 
+
+                    <li> 
+
+                        type="checkbox": Selects multiple stand-alone options. 
+
+                    </li> 
+
+ 
+
+                </ul> 
+
+ 
+
+            </li> 
+
+ 
+
+            <li> 
+
+                TEXTAREA: Creates a larger, multi-line field ideal for 
+
+                messages or comments. 
+
+            </li> 
+
+ 
+
+            <li> 
+
+                SELECT &amp; OPTION: Builds a dropdown selection menu. 
+
+            </li> 
+
+ 
+
+        </ol> 
+
+ 
+
+ 
+
+        <h3>BUILT IN VALIDATION ATTRIBUTES:</h3> 
+
+ 
+
+        <ol> 
+
+ 
+
+            <li> 
+
+                REQUIRED: Blocks form submission if the input field 
+
+                is left empty. 
+
+            </li> 
+
+ 
+
+            <li> 
+
+                PLACEHOLDER: Displays a temporary hint text inside 
+
+                the input box. 
+
+            </li> 
+
+ 
+
+            <li> 
+
+                MINLENGTH/MAXLENGTH: Imposes exact text character counts. 
+
+            </li> 
+
+ 
+
+        </ol> 
+
+ 
+
+    </div> 
+
+ 
+
+ 
+
+    <a href="#home" class="button back"> 
+
+        ← Back to Our Home 
+
+    </a> 
+
+ 
+
+</div> 
+
+ 
+
+ 
+
+</body> 
+
+</html> 
